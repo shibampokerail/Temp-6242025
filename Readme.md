@@ -71,7 +71,7 @@ A desktop application built with Python and PySide6 to provide a fast, responsiv
 Also a log file, `qualys_app.log`, will be created in the same directory when the application is run.
 
 
-## Architecture & Workflow
+## Architecture & Workflow (You may not want to go through the code line by line so, here is how it works)
 
 The application follows a "Fetch once, Search many times" architecture to provide a fast user experience.
 
