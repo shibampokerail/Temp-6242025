@@ -1,6 +1,6 @@
 # Qualys Tool
 
-A desktop application built with Python and PySide6 to provide a fast, responsive, and powerful interface for interacting with the Qualys Cloud Platform. This tool is designed to overcome the latency of web interfaces by using a high-performance local caching strategy, enabling instantaneous searching and filtering of thousands of assets.
+An application built with Python and PySide6 to provide a fast, responsive, and powerful interface for interacting with the Qualys Cloud Platform. This tool is designed to overcome the latency of web interfaces by using a high-performance local caching strategy, enabling instantaneous searching and filtering of thousands of assets.
 
 ## Details
 
@@ -71,9 +71,8 @@ A desktop application built with Python and PySide6 to provide a fast, responsiv
 Also a log file, `qualys_app.log`, will be created in the same directory when the application is run.
 
 
-## Architecture & Workflow (You may not want to go through the code line by line so, here is how it works)
+## Architecture & Workflow (Here is how it works)
 
-The application follows a "Fetch once, Search many times" architecture to provide a fast user experience.
 
 ```mermaid
 flowchart TD
