@@ -2,14 +2,14 @@
 
 A desktop application built with Python and PySide6 to provide a fast, responsive, and powerful interface for interacting with the Qualys Cloud Platform. This tool is designed to overcome the latency of web interfaces by using a high-performance local caching strategy, enabling instantaneous searching and filtering of thousands of assets.
 
-## Features
+## Details
 
 -   **Modern GUI:** A clean and professional user interface built with PySide6.
 -   **Secure Login:** The application will not start until a successful API connection is established.
 -   **High-Performance Caching:** On startup, the application fetches all asset and tag data using the efficient, multi-threaded Qualys Platform Service (QPS) API. All subsequent operations are performed on this local cache.
 -   **Instant, Live Filtering:** "As-you-type" filtering for both assets and tags. A debounce timer ensures the UI remains smooth and responsive even with thousands of assets in the cache.
 -   **Parallel Data Fetching:** Includes support for both the modern `/qps/` API and the legacy `/fo/` API for fetching asset data, with the QPS method being preferred for its speed.
--   **Tagging Interface:** UI for single and bulk asset tagging is in place. (Note: The final API calls for these actions are currently halted for development).
+-   **Tagging Interface:** UI for single and bulk asset tagging is in place. (Note: The final API calls for these actions are currently halted).
 -   **Robust Logging:** Detailed logs are written to `qualys_app.log` for easy debugging and auditing of all API interactions.
 
 ## Architecture & Workflow
@@ -100,7 +100,7 @@ flowchart TD
 ### Prerequisites
 
 -   Python 3.8+
--   A Qualys user account with API access and permissions for the Asset Management (AM) and Knowledge Base (KB) modules.
+-   A Qualys user account with API access and permissions for the Asset Management (AM) modules.
 
 ### Setup Instructions
 
@@ -127,11 +127,11 @@ flowchart TD
     pip install -r requirements.txt
     ```
 
-## Usage
+## GUI Usage for the Readonly API
 
-1.  **Run the application:**
+1.  **Run the /fo GUI application:**
     ```bash
-    python qualys_dashboard_pyside.py
+    python app.py
     ```
 
 2.  **Login:** A login dialog will appear. Enter your Qualys username and password. The application will not proceed until it successfully authenticates with the Qualys API.
@@ -144,26 +144,13 @@ flowchart TD
 
 5.  **Tagging (Future):** Navigate to the "Single Tagging" or "Bulk Tagging" tabs to use the UI for preparing tagging operations.
 
-## File Structure
+## CLI Usage for the QPS API
 
-```
-.
-├── qualys_dashboard_pyside.py  # Main GUI application logic (PySide6)
-├── security_tools.py           # Qualys API interaction and caching logic
-├── logging_config.py           # Centralized logging setup
-├── requirements.txt            # Python package dependencies
-└── README.md                   # This file
-```
-A log file, `qualys_app.log`, will be created in the same directory when the application is run.
+1.  **Run the /qps CLI application:**
+    ```bash
+    python qps_test.py
+    ```
+    
+Also a log file, `qualys_app.log`, will be created in the same directory when the application is run.
 
-## Future Development
 
-The current version provides a robust foundation for viewing and searching data. Future work will focus on implementing the action-oriented features:
--   [ ] **Enable Tagging Operations:** Connect the "Apply Tags" button to the `update_asset_tags_by_id` API function.
--   [ ] **Implement Bulk CSV Tagging:** Build the logic to parse the CSV file and perform bulk updates.
--   [ ] **Full Pagination for Legacy API:** Implement the looping pagination for the `/fo/` asset fetch method to support environments with more assets than the truncation limit.
--   [ ] **Add Features to Settings Tab:** Allow for configuration of timeouts, API endpoints, etc.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
