@@ -209,7 +209,7 @@ class TagManagerDialog(QDialog):
             layout.setContentsMargins(0, 0, 0, 0)
 
             label = QLabel(tag_name)
-            remove_button = QPushButton("❌ Remove Tag")
+            remove_button = QPushButton("X Remove Tag")
             remove_button.setToolTip(f"Stage '{tag_name}' for removal")
 
  
@@ -433,7 +433,7 @@ class QualysDashboardApp(QMainWindow):
         self.tabs.addTab(tab, "Query")
 
         fetch_frame = QHBoxLayout()
-        self.fetch_assets_button = QPushButton("🔄 Refresh All Assets")
+        self.fetch_assets_button = QPushButton("Refresh All Assets")
         fetch_frame.addWidget(self.fetch_assets_button)
         fetch_frame.addStretch()
         layout.addLayout(fetch_frame)
@@ -753,6 +753,7 @@ class QualysDashboardApp(QMainWindow):
         self.populate_table(results, ['id', 'ip', 'hostname', 'tags'])
 
     def create_single_tagging_tab(self):
+        """In Progress: Just a dummy tab"""
         tab = QWidget()
         layout = QVBoxLayout(tab)
         self.tabs.addTab(tab, "Single Tagging")
@@ -788,6 +789,7 @@ class QualysDashboardApp(QMainWindow):
 
 
     def create_bulk_tagging_tab(self):
+        """In Progress: Just a dummy tab"""
         tab = QWidget()
         layout = QVBoxLayout(tab)
         self.tabs.addTab(tab, "Bulk Tagging (CSV)")
@@ -814,6 +816,7 @@ class QualysDashboardApp(QMainWindow):
         self.process_csv_button.clicked.connect(self.start_bulk_tagging)
 
     def create_settings_tab(self):
+        """In Progress: Just a dummy tab"""
         tab = QWidget()
         layout = QVBoxLayout(tab)
         self.tabs.addTab(tab, "Settings")
@@ -994,10 +997,10 @@ if __name__ == "__main__":
     if login_dialog.exec() == QDialog.Accepted:
         successful_client = login_dialog.api_client
 
-        # Create the main window instance
+        
         window = QualysDashboardApp(api_client=successful_client)
 
-        # Shows the window first, THEN starts the fetch
+       
         window.show()
 
         # Trigger the initial asset fetch automatically
