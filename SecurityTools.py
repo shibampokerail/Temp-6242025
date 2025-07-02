@@ -193,7 +193,7 @@ class QualysAPI:
         Tests the API connection and credentials using a reliable, universal endpoint.
         """
         try:
-            self._request("GET", "/api/2.0/fo/knowledge_base/vuln/?action=list&ids=1")
+            self._request("GET", "/api/2.0/fo/asset/group/?action=list&truncation_limit=1")
             return True, "Connection Successful. Ready."
         except QualysAPIError as e:
             return False, str(e)
